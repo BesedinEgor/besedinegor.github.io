@@ -79,10 +79,13 @@ code {
 }
 .reset,
 ul,
-ol,
+ol {
+    text-decoration: none;
+    color: inherit;
+}
 a {
     text-decoration: none;
-    color: #fff;
+    color: blue;
 }
 sup {
     font-size: 14px;
@@ -115,6 +118,7 @@ sup {
     margin: 0;
     padding: 0;
     text-transform: uppercase;
+    color: rgb(238, 133, 133);
 }
 .left__main {
     background-color: rgb(100, 78, 78);
@@ -152,7 +156,7 @@ sup {
     display: flex;
 }
 .blog-content {
-    background-color: rgb(238, 133, 133);
+    background-color: #fff;
     grid-area: 2 / 2 / 3 / 3;
 }
 .blog-content__inner {
