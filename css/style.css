@@ -72,6 +72,10 @@ code {
     border-color: #d5d5d5;
     white-space: pre-wrap;
 }
+figcaption {
+    margin: 10px 0 0;
+    color: #757575;
+}
 .list-style-reset {
     list-style: none;
     margin: 0;
