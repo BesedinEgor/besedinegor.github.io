@@ -140,37 +140,40 @@
                                 <a class="menu__link" href="tracking-the-focus.html">Отслеживание фокуса на потомках</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="rules-for-external-margins.html">Правила организации внешних отступов в
+                                <a class="menu__link" href="rules-for-external-margins.html">Правила организации внешних
+                                    отступов в
                                     вёрстке</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Обзор позиционирования</a>
+                                <a class="menu__link" href="positioning-overview.html">Обзор позиционирования</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Свойство font-display</a>
+                                <a class="menu__link" href="property-font-display.html">Свойство font-display</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Зачем нужны префиксы</a>
+                                <a class="menu__link" href="prefixes.html">Зачем нужны префиксы</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Как правильнее использовать
+                                <a class="menu__link" href="pseudo-elements.html">Как правильнее использовать
                                     псевдоэлементы?</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Какие единицы измерения использовать для
+                                <a class="menu__link" href="units of measurement for line-height.html">Какие единицы
+                                    измерения использовать для
                                     line-height?</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Нужно ли разделять состояния :hover, :focus,
+                                <a class="menu__link" href="separation of states.html">Нужно ли разделять состояния
+                                    :hover, :focus,
                                     :active?</a>
                             </li>
                         </ol>
                     </li>
                     <li class="menu__item">
-                        <a class="menu__link" href="#">Гриды</a>
+                        <a class="menu__link" href="what is a grid.html">Гриды</a>
                         <ol class="menu__embedded">
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Что такое сетка?</a>
+                                <a class="menu__link" href="what is a grid.html">Что такое сетка?</a>
                             </li>
                             <li class="menu__item">
                                 <a class="menu__link" href="#">Описание сетки</a>
@@ -361,50 +364,59 @@
 
         <section class="blog-content">
             <div class="blog-content__inner">
-                <h2 class="blog__title">Глава 3.7. Отслеживание фокуса на потомках
+                <h2 class="blog__title">Глава 3.14. Нужно ли разделять состояния :hover, :focus, :active?
                 </h2>
-                <p>Псевдокласс <code>:focus</code> позволяет отслеживать непосредственный элемент в фокусе, а
-                    <code>:focus-within</code> позволяет
-                    отслеживать ещё и дочерние элементы в фокусе.
+                <p>Короткий ответ — конечно, нужно. Причина в том, что эти состояния помогают пользователю понять, с чем
+                    и как он взаимодействует.</p>
+                <p>Возможно, вы уже пишите стили для состояний в таком виде:</p>
+                <figure>
+                    <img src="img/3.14-code.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <p>Это неплохой вариант, но можно лучше. Давайте рассмотрим отдельно каждые состояния:</p>
+                <ul>
+                    <li><code>:hover</code> срабатывает, когда пользователь наводит курсор мыши на элемент. Разница в
+                        состояниях
+                        может не быть яркой, потому что пользователь уже знает, на какой элемент он навел.</li>
+                    <li><code>:focus</code> срабатывает, когда пользователь переходит на элемент с клавиатуры с помощью
+                        клавиши tab
+                        или когда пользователь кликает на элемент. Получить фокус могут все интерактивные элементы:
+                        <code>&lt;a&gt;</code>,
+                        <code>&lt;button&gt;</code> (с исключениями в Safari и Firefox для Mac),
+                        <code>&lt;input&gt;</code> и элементы с <code>tabindex</code>. Когда
+                        пользователь перемещается по вашему интерфейсу с помощью клавиатуры, ему важно понимать,
+                        где он находится. Поэтому состояние фокуса нужно сделать как можно более заметным.
+                        <i>tabIndex=”-1» отключает фокус при переходе с клавиатуры, но не отключает фокус при клике.</i>
+                    </li>
+                    <li><code>:active</code> срабатывает, когда вы взаимодействуете с элементом, например, удерживаете
+                        кнопку мыши на
+                        элементе или удерживаете пробел. При этом удержание клавиши <code>Enter</code> не считается
+                        взаимодействием.
+                        <code>:active</code>, как и <code>:hover</code>, не обязательно сильно выделять, так как
+                        пользователь уже знает, с каким
+                        элементом взаимодействует.
+                    </li>
+                </ul>
+                <p>Получается, что существуют два важных состояния: когда пользователь понимает, с чем он
+                    взаимодействует, и когда ему нужно помочь.</p>
+                <figure>
+                    <img src="img/3.14-code-1.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <p>Обратите внимание, что <code>:hover</code> указан перед <code>:active</code>. Если написать
+                    <code>:active</code> раньше, чем <code>:hover</code>, то
+                    :hover переопределит <code>:active</code>.
                 </p>
-                <p>Для наглядности рассмотрим пример:</p>
+                <p>В разных браузерах и в разных операционных системах поведения могут отличаться, поэтому предложенный
+                    код может не работать идеально. Лучше всего полностью разделять состояния и каждому давать свою
+                    стилизацию.</p>
                 <figure>
-                    <img src="img/3.7-code.png" alt="Пример кода">
+                    <img src="img/3.14-code-2.png" alt="Пример кода">
                     <figcaption>Пример кода</figcaption>
                 </figure>
-                <p>Фон для <code>.wrapper</code> станет красного цвета, как только <code>&lt;a&gt;</code> получит фокус,
-                    так как <code>.wrapper</code> отслеживает все дочерние элементы в фокусе.</p>
-                <h3>Примеры использования</h3>
-                <h4>Формы</h4>
-                <p><code>:focus-within</code> помогает выделить активную форму на сайте, когда выбран один из её
-                    инпутов.</p>
-                <figure>
-                    <img src="img/3.7-code-1.png" alt="Пример кода">
-                    <figcaption>Пример кода</figcaption>
-                </figure>
-                <p>Пример можно усложнить. В хорошей форме группы полей располагаются в
-                    <code>&lt;fieldset&gt;</code>. Поле, имеющее фокус, может стилизовать всю свою группу. Это поможет
-                    сфокусировать
-                    пользователя на конкретной группе полей.
-                </p>
-                <h4>Подменю</h4>
-                <figure>
-                    <img src="img/catalog.png" alt="Меню навигации для проекта Девайс">
-                    <figcaption>Меню навигации для проекта Девайс</figcaption>
-                </figure>
-                <p>Подменю — это дополнительная секция разделов для основного меню. Например, основной раздел «Каталог»
-                    может иметь подразделы: «Фитнес-браслеты», «Умные часы» и так далее.</p>
-                <p>Так как <code>:focus-within</code> отслеживает фокус не только на дочерних элементах, но и на самом
-                    элементе, то с его помощью можно легко сделать подменю доступным при навигации с клавиатуры при
-                    помощи <code>tab</code>.</p>
-                <p>Работать это будет так: когда мы окажемся на пункте меню «Каталог» и нажмём ещё раз <code>tab</code>,
-                    мы «провалимся» в подменю этого пункта и сможем навигировать уже по нему.</p>
-                <figure>
-                    <img src="img/3.7-code-2.png" alt="Пример кода">
-                    <figcaption>Пример кода</figcaption>
-                </figure>
+                <p>В этом случае всё зависит от того, насколько идеальным вы хотите сделать свой интерфейс.</p>
 
-                <a class="button" href="rules-for-external-margins.html">Продолжить</a>
+                <a class="button" href="what is a grid.html">Продолжить</a>
             </div>
         </section>
     </div>

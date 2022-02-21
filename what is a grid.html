@@ -140,37 +140,40 @@
                                 <a class="menu__link" href="tracking-the-focus.html">Отслеживание фокуса на потомках</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="rules-for-external-margins.html">Правила организации внешних отступов в
+                                <a class="menu__link" href="rules-for-external-margins.html">Правила организации внешних
+                                    отступов в
                                     вёрстке</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Обзор позиционирования</a>
+                                <a class="menu__link" href="positioning-overview.html">Обзор позиционирования</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Свойство font-display</a>
+                                <a class="menu__link" href="property-font-display.html">Свойство font-display</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Зачем нужны префиксы</a>
+                                <a class="menu__link" href="prefixes.html">Зачем нужны префиксы</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Как правильнее использовать
+                                <a class="menu__link" href="pseudo-elements.html">Как правильнее использовать
                                     псевдоэлементы?</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Какие единицы измерения использовать для
+                                <a class="menu__link" href="units of measurement for line-height.html">Какие единицы
+                                    измерения использовать для
                                     line-height?</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Нужно ли разделять состояния :hover, :focus,
+                                <a class="menu__link" href="separation of states.html">Нужно ли разделять состояния
+                                    :hover, :focus,
                                     :active?</a>
                             </li>
                         </ol>
                     </li>
                     <li class="menu__item">
-                        <a class="menu__link" href="#">Гриды</a>
+                        <a class="menu__link" href="what is a grid.html">Гриды</a>
                         <ol class="menu__embedded">
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Что такое сетка?</a>
+                                <a class="menu__link" href="what is a grid.html">Что такое сетка?</a>
                             </li>
                             <li class="menu__item">
                                 <a class="menu__link" href="#">Описание сетки</a>
@@ -361,50 +364,26 @@
 
         <section class="blog-content">
             <div class="blog-content__inner">
-                <h2 class="blog__title">Глава 3.7. Отслеживание фокуса на потомках
+                <h2 class="blog__title">Глава 4.1. Что такое сетка?
                 </h2>
-                <p>Псевдокласс <code>:focus</code> позволяет отслеживать непосредственный элемент в фокусе, а
-                    <code>:focus-within</code> позволяет
-                    отслеживать ещё и дочерние элементы в фокусе.
+                <p>Сеткой или раскладкой обычно называют взаимное расположение крупных визуальных блоков на странице.
                 </p>
-                <p>Для наглядности рассмотрим пример:</p>
-                <figure>
-                    <img src="img/3.7-code.png" alt="Пример кода">
-                    <figcaption>Пример кода</figcaption>
-                </figure>
-                <p>Фон для <code>.wrapper</code> станет красного цвета, как только <code>&lt;a&gt;</code> получит фокус,
-                    так как <code>.wrapper</code> отслеживает все дочерние элементы в фокусе.</p>
-                <h3>Примеры использования</h3>
-                <h4>Формы</h4>
-                <p><code>:focus-within</code> помогает выделить активную форму на сайте, когда выбран один из её
-                    инпутов.</p>
-                <figure>
-                    <img src="img/3.7-code-1.png" alt="Пример кода">
-                    <figcaption>Пример кода</figcaption>
-                </figure>
-                <p>Пример можно усложнить. В хорошей форме группы полей располагаются в
-                    <code>&lt;fieldset&gt;</code>. Поле, имеющее фокус, может стилизовать всю свою группу. Это поможет
-                    сфокусировать
-                    пользователя на конкретной группе полей.
+                <p>Можно мысленно разделить макет на не пересекающиеся друг с другом прямоугольники. Сначала вы получите
+                    самые крупные области, потом эти крупные области можно разделить на области поменьше, и так далее до
+                    мельчайших прямоугольников, которые выделяют отдельные слова или элементы страницы. Вся страница
+                    будет выглядеть как набор вложенных в друг друга прямоугольников, от самых крупных до самых мелких.
                 </p>
-                <h4>Подменю</h4>
                 <figure>
-                    <img src="img/catalog.png" alt="Меню навигации для проекта Девайс">
-                    <figcaption>Меню навигации для проекта Девайс</figcaption>
+                    <img src="img/skill_grid_theory_01@1x.png" alt="Схематичное изображение системы контейнеров сайта">
+                    <figcaption>Схематичное изображение системы контейнеров сайта</figcaption>
                 </figure>
-                <p>Подменю — это дополнительная секция разделов для основного меню. Например, основной раздел «Каталог»
-                    может иметь подразделы: «Фитнес-браслеты», «Умные часы» и так далее.</p>
-                <p>Так как <code>:focus-within</code> отслеживает фокус не только на дочерних элементах, но и на самом
-                    элементе, то с его помощью можно легко сделать подменю доступным при навигации с клавиатуры при
-                    помощи <code>tab</code>.</p>
-                <p>Работать это будет так: когда мы окажемся на пункте меню «Каталог» и нажмём ещё раз <code>tab</code>,
-                    мы «провалимся» в подменю этого пункта и сможем навигировать уже по нему.</p>
-                <figure>
-                    <img src="img/3.7-code-2.png" alt="Пример кода">
-                    <figcaption>Пример кода</figcaption>
-                </figure>
+                <p>Фактически вёрстка сетки сайта подразумевает выстраивание порядка и расположения этих прямоугольников
+                    друг относительно друга, а также относительно границ экрана. В CSS есть несколько методов создания
+                    такой сетки, и каждый из них обладает своими достоинствами и недостатками.</p>
+                <p>Прежде чем приступить к построению сеток, нам нужно разобраться, что такое поток документа.</p>
+                <h3>Поток документа</h3>
 
-                <a class="button" href="rules-for-external-margins.html">Продолжить</a>
+                <a class="button" href="#">Продолжить</a>
             </div>
         </section>
     </div>
