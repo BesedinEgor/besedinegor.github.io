@@ -204,13 +204,14 @@
                                 <a class="menu__link" href="repeats-in-the-grid.html">Повторы в гриде</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Сокращённая запись</a>
+                                <a class="menu__link" href="abbreviated-entry.html">Сокращённая запись</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Инструменты для работы с гридами</a>
+                                <a class="menu__link" href="tools-for-working-width-grids.html">Инструменты для работы с
+                                    гридами</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Методика построения сеток на гридах</a>
+                                <a class="menu__link" href="grid-construction-technique.html">Методика построения сеток на гридах</a>
                             </li>
                         </ol>
                     </li>
@@ -365,102 +366,38 @@
 
         <section class="blog-content">
             <div class="blog-content__inner">
-                <h2 class="blog__title">Глава 4.9. Размеры бокса
+                <h2 class="blog__title">Глава 4.12. Инструменты для работы с гридами
                 </h2>
-                <p>В современном вебе появились новые единицы измерения для определения размеров. Они представляют
-                    «внутренние» размеры на основе содержимого и «внешние» размеры на основе контекста. Это позволяет с
-                    помощью CSS легче описывать блоки, которые соответствуют их содержимому или вписываются в конкретный
-                    контекст макета.</p>
-                <p>Раньше мы могли управлять только шириной или высотой бокса в абсолютных единицах.</p>
+                <p>В средства разработчика браузеров <em>Google Chrome</em> и <em>Mozilla Firefox</em> включены также
+                    инструменты для
+                    удобной инспекции гридов.</p>
+                <p>Вот так инспектор выглядит в <em>Firefox</em>:</p>
                 <figure>
-                    <img src="img/4.9-code.png" alt="Пример кода">
-                    <figcaption>Пример кода
+                    <img src="img/skill_grid_theory_ff@1x.png" alt="Инспектор в Firefox">
+                    <figcaption>Инспектор в Firefox
                     </figcaption>
                 </figure>
-                <p>В этом случае блок всегда будет ровно таким, какие заданы ему размеры. Чуть позже появилась
-                    возможность управлять минимальной и максимальной шириной, а также высотой.</p>
+                <p>Подробнее об инспекторе в <em>Firefox</em> можно почитать в <a
+                        href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts">статье
+                        на MDN</a>.</p>
+                <p>А вот так инспектор выглядит в <em>Chrome</em>:</p>
                 <figure>
-                    <img src="img/4.9-code-1.png" alt="Пример кода">
-                    <figcaption>Пример кода
+                    <img src="img/skill_grid_theory_chrome@1x.png" alt="Инспектор в Chrome">
+                    <figcaption>Инспектор в Chrome
                     </figcaption>
                 </figure>
-                <p>В этом случае, в зависимости от внешних факторов, например, от размера окна или своего содержимого,
-                    блок мог изменять свой размер от 50px до 150px.</p>
-                <p>Но этого было недостаточно, так как хотелось более гибкого управления размерами блока. Например,
-                    указать размер блока, отталкиваясь от его содержимого. Для такого поведения добавили два значения:
-                </p>
-                <ol>
-                    <li><code>min-content</code>.</li>
-                    <li><code>max-content</code>.</li>
-                </ol>
-                <h3><code>min-content</code></h3>
-                <p><code>min-content</code> — определяет оптимальную ширину в качестве самого узкого строкового
-                    элемента, который
-                    может занять блок, и это не приведёт к переполнению содержимого контейнера.</p>
-                <p>Рассмотрим пример</p>
-                <figure>
-                    <img src="img/4.9-code-2.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="img/min-content.png" alt="">
-                </figure>
-                <p>Содержимое первого элемента сжимается до минимально возможного размера, равного слову «небольшой», но
-                    не ломает рядом стоящий блок.</p>
-                <h3><code>max-content</code></h3>
-                <p><code>max-content</code> — определяет оптимальную ширину в качестве максимально возможной ширины
-                    своего контента
-                    для содержимого контейнера.</p>
-                <p>Рассмотрим пример.</p>
-                <figure>
-                    <img src="img/4.9-code-3.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="img/max-content.png" alt="">
-                </figure>
-                <p>Содержимое первого элемента расширяется на максимальную ширину по тексту.</p>
-                <h3><code>min-content</code> для большого текста</h3>
-                <figure>
-                    <img src="img/4.9-code-4.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
-                </figure>
-                <p>Зададим первому блоку фиксированную ширину <code>600px</code>, которая никогда не будет меняться, а
-                    для второго
-                    блока — <code>min-content</code>.</p>
-                <figure>
-                    <img src="img/4.9-code-5.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
-                </figure>   
-                <figure>
-                    <img src="img/min-content-big-text.png" alt="">
-                </figure>
-                <p>Первый блок — <code>600px</code>, второй блок — по минимально возможному размеру. Оба блока стали
-                    занимать размер меньше, чем контейнер <code>.grid</code>.</p>
-                <h3><code>max-content</code> для большого текста</h3>
-                <figure>
-                    <img src="img/4.9-code-6.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
-                </figure>
-                <p>Зададим первому блоку фиксированную ширину <code>600px</code>, которая никогда не будет меняться, а
-                    для второго блока — <code>max-content</code>.</p>
-                <figure>
-                    <img src="img/4.9-code-7.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="img/max-content-big-text.png" alt="">
-                </figure>
-                <p>Первый блок — <code>600px</code>, второй блок растянулся на всю длину своего текста и даже выпал за
-                    пределы родительского блока, так как первый блок непоколебимо занял <code>600px</code>.</p>
+                <p>Помимо встроенного в Chrome инспектора существует также сторонний инспектор <a
+                        href="https://github.com/ademilter/chrome-css-grid-highlighter">CSS Grid Highlighter for
+                        Chrome</a>, который можно установить в браузер в виде расширения.</p>
+                <p>Если вам нравятся визуальные средства для работы с гридами, то познакомьтесь с такими инструментами
+                    как <a href="https://grid.layoutit.com/">CSS Grid Generator</a> и <a
+                        href="https://alialaa.github.io/css-grid-cheat-sheet/">CSS Grid Cheat Sheet</a> — в них можно с
+                    помощью
+                    графического интерфейса
+                    создать грид и экспортировать полученный код, или же просто «поиграть» с настройками грида для
+                    улучшения понимания.</p>
 
-                <a class="button" href="repeats-in-the-grid.html">Продолжить</a>
+                <a class="button" href="grid-construction-technique.html">Продолжить</a>
             </div>
         </section>
     </div>
