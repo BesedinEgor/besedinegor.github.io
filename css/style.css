@@ -71,6 +71,9 @@ code {
     border-color: #d5d5d5;
     white-space: pre-wrap;
 }
+figure{
+    margin: 0;
+}
 figcaption {
     margin: 10px 0 0;
     color: #757575;
@@ -132,7 +135,7 @@ sup {
     grid-area: 2 / 1 / 3 / 2;
 }
 .sub-menu {
-    padding: 20px;
+    padding: 20px 40px;
 }
 .menu__item {
     margin-bottom: 10px;
@@ -167,5 +170,5 @@ sup {
     grid-area: 2 / 2 / 3 / 3;
 }
 .blog-content__inner {
-    padding: 20px;
+    padding: 20px 40px;
 }
