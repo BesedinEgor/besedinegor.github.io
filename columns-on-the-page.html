@@ -333,23 +333,25 @@
                                 <a class="menu__link" href="links-underscores.html">Ссылки, подчёркивания</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Акценты внутри текста</a>
+                                <a class="menu__link" href="accents-inside-the-text.html">Акценты внутри текста</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Направление текста и трансформация</a>
+                                <a class="menu__link" href="text-direction-and-transformation.html">Направление текста и
+                                    трансформация</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Использование верхнего и нижнего индекса для
+                                <a class="menu__link" href="using-the-upper-and-lower-index.html">Использование верхнего
+                                    и нижнего индекса для
                                     формул и не только</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Таблицы</a>
+                                <a class="menu__link" href="tables.html">Таблицы</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Колонки на странице</a>
+                                <a class="menu__link" href="columns-on-the-page.html">Колонки на странице</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Переполнение текстом, однострочное и
+                                <a class="menu__link" href="text-overflow.html">Переполнение текстом, однострочное и
                                     многострочное</a>
                             </li>
                             <li class="menu__item">
@@ -400,54 +402,181 @@
 
         <section class="blog-content">
             <div class="blog-content__inner">
-                <h2 class="blog__title">Глава 6.13. Подписи к демонстрационному материалу
+                <h2 class="blog__title">Глава 6.19. Колонки на странице
                 </h2>
-                <p>До этого мы рассматривали случаи, когда текст играл главную роль. Но не всегда так бывает — текст
-                    может служить вспомогательным элементом, например, быть подписью к отдельно стоящему изображению. В
-                    таком случае картинку уместно обернуть в тег <code>&lt;figure&gt;</code> , а подпись к ней заключить
-                    в тег <code>&lt;figcaption&gt;</code>.
+                <p>При всём ажиотаже вокруг технологий <em>CSS Grid</em> и <em>Flexbox</em>, часто упускается из виду
+                    другой шаблон
+                    вёрстки — многоколоночный макет (<em>Multicol</em> или <em>CSS Columns</em>). Разберём, что такое
+                    <em>CSS Columns</em>, для
+                    каких задач он подходит и что нужно учитывать при его использовании.
                 </p>
-                <p>Давайте разберём ещё несколько примеров подписей к демонстрационному материалу.</p>
-                <h3>Подпись к видеоролику</h3>
-                <p>Аналогично случаю с изображением подпись может быть у видеоролика, если он выступает в роли
-                    демонстрационного материала.</p>
+                <p>Основная идея мультиколонок заключается в том, что вы можете взять фрагмент содержимого и поместить
+                    его в несколько колонок, как в газете.</p>
                 <figure>
-                    <img src="img/skill_add2_15@1x.png" alt="Пример подписи к видеоролику">
-                    <figcaption>Пример подписи к видеоролику
-                    </figcaption>
+                    <img src="img/add_text_multicol_01@1x.png" alt="Мультиколонки на сайте">
+                    <figcaption>Мультиколонки на сайте</figcaption>
+                </figure>
+                <p>Для добавления мультиколонок достаточно определить одно из CSS-свойств: <code>column-count</code> и
+                    <code>column-width</code>.
+                    <code>column-width</code> указывает минимальную ширину, которую должен занимать каждый столбец.
+                    <code>column-count</code>
+                    описывает количество колонок (ширина колонок будет рассчитываться, исходя из ширины доступного
+                    пространства). Если одновременно задаются <code>column-count</code> и <code>column-width</code>, то
+                    значение <code>column-count</code>
+                    будет считаться максимальным числом колонок.
+                </p>
+                <figure>
+                    <img src="img/6.19-code.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <i>
+                    <p>Единицы измеренич ширины колонки</p>
+                    <p>Ширина колонок задаётся в любых единицах длины, кроме <code>%</code>. Фактическая ширина столбца
+                        может быть
+                        больше (для заполнения доступного пространства) или уже (только если доступное пространство
+                        меньше указанной ширины столбца). Отрицательные значения не допускаются. Используемые значения
+                        будут ограничены минимум <code>1px</code>.</p>
+                </i>
+                <figure>
+                    <img src="img/6.19-code-1.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <p>Также используется сокращённое CSS-свойство <code>columns</code> для установки
+                    <code>column-width</code> и <code>column-count</code>
+                    одновременно (если одно из значений не установлено — берутся их начальные значения).
+                </p>
+                <figure>
+                    <img src="img/6.19-code-2.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <p>Неважно, какие элементы находятся внутри блока, который вы превращаете в многоколоночный контейнер,
+                    все элементы остаются в обычном потоке, но разбиваются на колонки.</p>
+                <h3>Стилизация колонок</h3>
+                <p>Блоки колонок, созданные с помощью свойств <em>CSS Columns</em>, не могут быть выбраны для
+                    стилизации. Поэтому
+                    не получится стилизовать отдельный блок и задать ему цвет фона или настроить <code>padding</code>
+                    или <code>margin</code>. Все
+                    блоки колонок будут одинакового размера. Единственное, что можно сделать — это добавить
+                    разделительную линию между колонками, используя CSS-свойство <code>column-rule</code> (свойство
+                    является
+                    сокращённой записью свойств <code>column-rule-width</code>, <code>column-rule-style</code> и
+                    <code>column-rule-color</code>).
+                </p>
+                <p>Ещё можно настроить отступ между колонками с помощью CSS-свойства <code>column-gap</code>.</p>
+                <figure>
+                    <img src="img/add_text_multicol_02@1x.png" alt="Разделитель между колонками">
+                    <figcaption>Разделитель между колонками</figcaption>
                 </figure>
                 <figure>
-                    <img src="img/6.13-code.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
+                    <img src="img/6.19-code-3.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
                 </figure>
-                <h3>Подпись к диаграмме или схеме</h3>
-                <p>В качестве содержимого <code>&lt;figure&gt;</code> может быть интерактивная SVG-диаграмма. При этом
-                    подпись также записывается в <code>&lt;figcaption&gt;</code>.</p>
+                <h3>Охват колонок</h3>
+                <p>Порой вам может потребоваться разбить некоторый контент на колонки, но затем один элемент разместить
+                    поперёк, охватив блоки всех колонок. Достигнуть этого можно, применив CSS-свойство
+                    <code>column-span</code> к
+                    потомку колоночного контейнера. Свойство может принимать лишь два значения: none (содержимое
+                    элемента отображается в одной колонке, это поведение по умолчанию) и <code>all</code> (элемент
+                    охватывает все
+                    колонки).
+                </p>
+                <p>В нашем примере заставим элемент <code>&lt;blockquote&gt;</code> охватить колонки.</p>
                 <figure>
-                    <img src="img/skill_add2_14@1x.png" alt="Пример подписи к диаграмме">
-                    <figcaption>Пример подписи к диаграмме
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="img/6.13-code-1.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
-                </figure>
-                <h3>Подпись к листингу кода</h3>
-                <p>Листинг кода может также быть подписан аналогично случаям выше.</p>
-                <figure>
-                    <img src="img/skill_add2_13@1x.png" alt="Пример подписи к листингу кода">
-                    <figcaption>Пример подписи к листингу кода
-                    </figcaption>
+                    <img src="img/6.19-code-4.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
                 </figure>
                 <figure>
-                    <img src="img/6.13-code-2.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
+                    <img src="img/add_text_multicol_03@1x.png" alt="Элемент <blockquote> занимает все колонки">
+                    <figcaption>Элемент <code>&lt;blockquote&gt;</code> занимает все колонки</figcaption>
+                </figure>
+                <p>Заметьте, когда вы делаете это, содержимое разбивается на набор полей выше этого элемента, затем
+                    начинает новый набор колонок ниже него. Содержимое не перепрыгивает через охватывающий элемент.</p>
+                <p>На данный момент CSS-свойство <code>column-span</code> имеет лишь частичную поддержку в браузерах.
+                    Подробнее
+                    смотрите на сайте <a href="https://caniuse.com/?search=column-span">CanIUse</a>.</p>
+                <h3>Управление переносом в колонках</h3>
+                <p>Разбиение контента на колонки аналогично разбиению контента на страницы и имеет те же сложности. Для
+                    решения этого вопроса было введено три новых свойства для управления разрывом столбцов:
+                    <code>break-before</code>
+                    (перед элементом), <code>break-after</code> (после элемента) и <code>break-inside</code> (внутри
+                    элемента). Эти свойства схожи
+                    по поведению с набором свойств <code>page-break-*</code>. В примере ниже CSS-свойство
+                    <code>break-inside: avoid</code> для
+                    элемента
+                    <code>&lt;figure&gt;</code> предотвращает отделение подписи от самой картинки. Браузер,
+                    поддерживающий это свойство, должен
+                    сохранить элемент цельным, даже если колонки при этом будут выглядеть неравномерными.
+                </p>
+                <figure>
+                    <img src="img/add_text_multicol_04@1x.png"
+                        alt="Использование break-inside: avoid для запрета отделения подписи от изображения">
+                    <figcaption>Использование <code>break-inside: avoid</code> для запрета отделения подписи от
+                        изображения</figcaption>
+                </figure>
+                <p>Разметка для блока:</p>
+                <figure>
+                    <img src="img/6.19-code-5.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <p>Стили:</p>
+                <figure>
+                    <img src="img/6.19-code-6.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <i>
+                    <p>Управление переносом вв колонах с помощью <code>display: inline-block</code></p>
+                    <figure>
+                        <img src="img/6.19-code-7.png" alt="Пример кода">
+                    </figure>
+                    <figure>
+                        <img src="img/6.19-code-8.png" alt="Пример кода">
+                        <figcaption>Пример кода</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/add_text_multicol_09@1x.png"
+                            alt="Обычное поведение текстовых абзацев внутри колонок">
+                        <figcaption>Обычное поведение текстовых абзацев внутри колонок</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/6.19-code-9.png" alt="Пример кода">
+                        <figcaption>Пример кода</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/add_text_multicol_08@1x.png" alt="Для абзацев установили display: inline-block;">
+                        <figcaption>Для абзацев установили <code>display: inline-block;</code></figcaption>
+                    </figure>
+                </i>
+                <h3>Где лучше применять мультиколонки</h3>
+                <p>Первое — это небольшой список элементов, который должен занимать меньше пространства. Например,
+                    простой список чекбоксов или список имен.</p>
+                <figure>
+                    <img src="img/add_text_multicol_05@1x.png" alt="Список банковских терминов">
+                    <figcaption>Список банковских терминов</figcaption>
+                </figure>
+                <p>Колонки удобно использовать для небольшого введения в статьях блога/тематических статьей.</p>
+                <figure>
+                    <img src="img/add_text_multicol_06@1x.png" alt="Колонки в введении для статьи">
+                    <figcaption>Колонки в введении для статьи</figcaption>
+                </figure>
+                <p>Также колонки хорошо подходят для подборки анонсов статей в подвале сайта.</p>
+                <figure>
+                    <img src="img/add_text_multicol_07@1x.png" alt="Колонки в разделе Это может вас заинтересовать">
+                    <figcaption>Колонки в разделе Это может <em>вас заинтересовать</em></figcaption>
+                </figure>
+                <p>Другой пример, когда колоночный макет отлично работает — в ситуациях, когда вы хотите отобразить
+                    содержимое в стиле <em>Masonry</em>. Этот вид раскладки используется на сайтах <a
+                        href="https://www.pinterest.ru/">pinterest.ru</a>,
+                    <a href="https://veerle.duoh.com/inspiration">veerle.duoh.com</a>.
+                    Колонки в данный момент — это единственный метод стилизации, который создаст нужный тип сетки с
+                    элементами разной высоты без дополнительных хаков.
+                </p>
+                <figure>
+                    <img src="img/add_text_tile_01@1x.png" alt="Раскладка в стиле Masonry на сайте veerle.duoh.com">
+                    <figcaption>Раскладка в стиле Masonry на сайте <a
+                            href="https://veerle.duoh.com/">veerle.duoh.com</a></figcaption>
                 </figure>
 
-                <a class="button" href="links-underscores.html">Продолжить</a>
+                <a class="button" href="text-overflow.html">Продолжить</a>
             </div>
         </section>
     </div>

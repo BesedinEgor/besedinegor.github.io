@@ -333,17 +333,19 @@
                                 <a class="menu__link" href="links-underscores.html">Ссылки, подчёркивания</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Акценты внутри текста</a>
+                                <a class="menu__link" href="accents-inside-the-text.html">Акценты внутри текста</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Направление текста и трансформация</a>
+                                <a class="menu__link" href="text-direction-and-transformation.html">Направление текста и
+                                    трансформация</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Использование верхнего и нижнего индекса для
+                                <a class="menu__link" href="using-the-upper-and-lower-index.html">Использование верхнего
+                                    и нижнего индекса для
                                     формул и не только</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Таблицы</a>
+                                <a class="menu__link" href="tables.html">Таблицы</a>
                             </li>
                             <li class="menu__item">
                                 <a class="menu__link" href="#">Колонки на странице</a>
@@ -400,54 +402,76 @@
 
         <section class="blog-content">
             <div class="blog-content__inner">
-                <h2 class="blog__title">Глава 6.13. Подписи к демонстрационному материалу
+                <h2 class="blog__title">Глава 6.17. Использование верхнего и нижнего индекса для формул и не только
                 </h2>
-                <p>До этого мы рассматривали случаи, когда текст играл главную роль. Но не всегда так бывает — текст
-                    может служить вспомогательным элементом, например, быть подписью к отдельно стоящему изображению. В
-                    таком случае картинку уместно обернуть в тег <code>&lt;figure&gt;</code> , а подпись к ней заключить
-                    в тег <code>&lt;figcaption&gt;</code>.
+                <p>Наверняка, вы уже сталкивались с тегами <code>&lt;sup&gt;</code> (верхний индекс) и
+                    <code>&lt;sub&gt;</code> (нижний индекс) на страницах
+                    сайтов. В спецификации рекомендуют использовать эти теги только по типографским причинам.
+                    Для добавления тексту эффекта «прыгающих» букв лучше использовать другие способы. Разберём,
+                    где же уместно использовать теги <code>&lt;sup&gt;</code> и <code>&lt;sub&gt;</code> при вёрстке
+                    текстовых элементов.
                 </p>
-                <p>Давайте разберём ещё несколько примеров подписей к демонстрационному материалу.</p>
-                <h3>Подпись к видеоролику</h3>
-                <p>Аналогично случаю с изображением подпись может быть у видеоролика, если он выступает в роли
-                    демонстрационного материала.</p>
+                <p>В большой статье не обойтись без сносок, на этот случай идеально подходит тег
+                    <code>&lt;sup&gt;</code>.
+                </p>
                 <figure>
-                    <img src="img/skill_add2_15@1x.png" alt="Пример подписи к видеоролику">
-                    <figcaption>Пример подписи к видеоролику
-                    </figcaption>
+                    <img src="img/6.17-code.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
                 </figure>
                 <figure>
-                    <img src="img/6.13-code.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
+                    <img src="img/add_text_sup_sub_01@1x.png" alt="Сноски на сайте">
+                    <figcaption>Сноски на сайте</figcaption>
                 </figure>
-                <h3>Подпись к диаграмме или схеме</h3>
-                <p>В качестве содержимого <code>&lt;figure&gt;</code> может быть интерактивная SVG-диаграмма. При этом
-                    подпись также записывается в <code>&lt;figcaption&gt;</code>.</p>
+                <p>Верхние и нижние индексы активно применяются в математике, физике, химии, для обозначения единиц
+                    измерения. А значит, в этих случаях можно и нужно использовать теги <code>&lt;sup&gt;</code> и
+                    <code>&lt;sub&gt;</code>.
+                </p>
+                <p>Ниже размещён пример статьи, которая рассказывает об истории добычи меди. В статье есть химическая
+                    формула. Разметим её с помощью тега <code>&lt;sub&gt;</code>.</p>
                 <figure>
-                    <img src="img/skill_add2_14@1x.png" alt="Пример подписи к диаграмме">
-                    <figcaption>Пример подписи к диаграмме
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="img/6.13-code-1.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
-                </figure>
-                <h3>Подпись к листингу кода</h3>
-                <p>Листинг кода может также быть подписан аналогично случаям выше.</p>
-                <figure>
-                    <img src="img/skill_add2_13@1x.png" alt="Пример подписи к листингу кода">
-                    <figcaption>Пример подписи к листингу кода
-                    </figcaption>
+                    <img src="img/add_text_sup_sub_02@1x.png" alt="Статья с формулами">
+                    <figcaption>Статья с формулами</figcaption>
                 </figure>
                 <figure>
-                    <img src="img/6.13-code-2.png" alt="Пример кода">
-                    <figcaption>Пример кода
-                    </figcaption>
+                    <img src="img/6.17-code-1.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
                 </figure>
+                <p>Пример из «классической алгебры» — полиномиальное уравнение от <code>n</code> переменных.</p>
+                <figure>
+                    <img src="img/add_text_sup_sub_03@1x.png" alt="Полиномиальное уравнение от n переменных">
+                    <figcaption>Полиномиальное уравнение от <code>n</code> переменных</figcaption>
+                </figure>
+                <p>В спецификации рекомендуется переменные и параметры функции оборачивать тегом
+                    <code>&lt;var&gt;</code>, используем и его в разметке.
+                </p>
+                <p>Разметка для блока:</p>
+                <figure>
+                    <img src="img/6.17-code-2.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <p>В примере с полиномом мы изменили стили по умолчанию и установили CSS-свойства <code>font-size</code>
+                    (размер шрифта) и <code>vertical-align</code> (вертикальное выравнивание).</p>
+                <p>Например, браузер Google Chrome использует следующие стили по умолчанию для тегов
+                    <code>&lt;sup&gt;</code> и <code>&lt;sub&gt;</code>:
+                </p>
+                <figure>
+                    <img src="img/6.17-code-3.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <p>Теги регистров можно вкладывать друг в друга, иногда это пригождается для формул.</p>
+                <figure>
+                    <img src="img/add_text_sup_sub_04@1x.png" alt="Пример с вложенными тегами верхнего регистра">
+                    <figcaption>Пример с вложенными тегами верхнего регистра</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/6.17-code-4.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
+                <p>Далеко не все формулы можно добавить на страницу с помощью тегов. Формулы, содержащие квадратные
+                    корни, интегралы, дроби получится добавить на сайт лишь используя специализированные инструменты
+                    (<em>MathML, TeX</em> и подобные) или с помощью изображения.</p>
 
-                <a class="button" href="links-underscores.html">Продолжить</a>
+                <a class="button" href="tables.html">Продолжить</a>
             </div>
         </section>
     </div>
