@@ -71,7 +71,7 @@ code {
     border-color: #d5d5d5;
     white-space: pre-wrap;
 }
-figure{
+figure {
     margin: 0;
 }
 figcaption {
@@ -89,7 +89,7 @@ ol {
     text-decoration: none;
     color: inherit;
 }
-li:not(:last-child){
+li:not(:last-child) {
     margin-bottom: 10px;
 }
 a {
@@ -158,9 +158,17 @@ sup {
     text-decoration: none;
     color: #fff;
 }
+.menu__darken {
+    color: #000;
+    font-size: 20px;
+    text-decoration: underline;
+}
 .blog__title {
     font-size: 40px;
     margin: 0;
+}
+.blog__index {
+    font-size: 26px;
 }
 .flex-img {
     display: flex;
