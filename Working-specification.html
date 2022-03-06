@@ -18,9 +18,12 @@
                     </h1>
                 </a>
             </div>
+            <div class="header__burger">
+                <span></span>
+            </div>
         </header>
 
-        <section class="left__main">
+        <section class="left__main closed">
             <div class="sub-menu">
                 <ol class="menu__list">
                     <li class="menu__item">
@@ -590,25 +593,20 @@
                     содержимого родительского тега. В нашем случае необходимо дополнительно проанализировать
                     поле <strong>Content model</strong> у родительского, по отношению к a, тега.</p>
                 <p>В случае, когда тег a вложен в p, нельзя вкладывать h1 в a:</p>
-                <textarea name="code" cols="35" rows="10">
-                                    <p>
-                                        <a href="index.html">
-                                          <h1>Барбершоп</h1>
-                                        </a>
-                                    </p>
-                                </textarea>
+                <figure>
+                    <img src="img/1.4-code.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
                 <p>Но если ссылка обёрнута в тег section, то такая вложенность разрешена:</p>
-                <textarea name="code" cols="35" rows="15">
-                                    <section>
-                                        <a href="index.html">
-                                          <h1>Барбершоп</h1>
-                                        </a>
-                                      </section>
-                                </textarea>
+                <figure>
+                    <img src="img/1.4-code-1.png" alt="Пример кода">
+                    <figcaption>Пример кода</figcaption>
+                </figure>
                 <a class="button" href="Validation check.html">Продолжить</a>
             </div>
         </section>
     </div>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
